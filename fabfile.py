@@ -4,7 +4,7 @@ Fabfile to deploy rebrow
 """
 
 import os
-import StringIO
+import io
 
 import boto3
 
@@ -155,4 +155,4 @@ def pip_install(symlink='current'):
 def git_version(symlink='current'):
     """Git version."""
     git_version = '{}/{}/git_version'.format(env.remote_dir, symlink)
-    put(StringIO.StringIO(env.commit), git_version)
+    put(io.StringIO(env.commit), git_version)
